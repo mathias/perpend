@@ -4,22 +4,23 @@
 >   v. To consider carefully; ponder.
 >   v. To be attentive; reflect.
 
-A place to study data structures and algorithms that I'm interested in. Not intended for production use. Not optimized or really intended to mean anything.
+A place to study data structures and algorithms that I'm interested in. Not intended for production use. Not optimized. Really, don't read into this repo too much.
 
 ## TODO
 
 ### Checksums:
-* [Adler-32](http://en.wikipedia.org/wiki/Adler-32)
-* [Fletcher's checksum](http://en.wikipedia.org/wiki/Fletcher%27s_checksum)
-* [Cyclic Redundancy Check (CRCs)](http://en.wikipedia.org/wiki/Cyclic_redundancy_check)
+* [x] [Adler-32](http://en.wikipedia.org/wiki/Adler-32)
+* [ ] [Fletcher's checksum](http://en.wikipedia.org/wiki/Fletcher%27s_checksum)
+* [ ] [Cyclic Redundancy Check (CRCs)](http://en.wikipedia.org/wiki/Cyclic_redundancy_check)
 
 ### Cryptographic hashing:
-* SHA-1
-* SHA-2
-* SHA-3
-* MD5
+* [ ] SHA-1
+* [ ] SHA-2
+* [ ] SHA-3
+* [ ] MD5
 
-###
+### keyed-hash message authentication code (HMAC)
+* [ ] HMAC w/ MD5
 
 
 ## License
