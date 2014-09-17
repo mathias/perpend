@@ -1,9 +1,10 @@
 # perpend
 
 > per•pend (pər-pĕndˈ)
->   v. To consider carefully; ponder.
->   v. To be attentive; reflect.
->   n. a vertical layer of mortar between two bricks.
+>
+> - v. To consider carefully; ponder.
+> - v. To be attentive; reflect.
+> - n. a vertical layer of mortar between two bricks.
 
 A place to study data structures and algorithms that I'm interested in. Not intended for production use. Not optimized. Really, don't read into this repo too much.
 
