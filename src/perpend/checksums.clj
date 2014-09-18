@@ -18,3 +18,17 @@
         [a b] (reduce adler-checksum-reducer [1 0] s)]
     (+ (* (mod b prime) 65536)
        (mod a prime))))
+
+;; Fletcher-32
+
+(defn fletcher-32-reducer [[a b] ch]
+  (let [n (int ch)
+        new-a (mod (+ a n) 65535)
+        new-b (mod (+ b new-a) 65535)]
+    [new-a new-b]))
+
+(defn fletcher-32 [s]
+  (let [[a b] (reduce fletcher-32-reducer [0 0] s)]
+    (println a)
+    (println b)
+    (bit-or (bit-shift-left b 16) a)))
