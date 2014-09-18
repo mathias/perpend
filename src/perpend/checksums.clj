@@ -1,5 +1,4 @@
-(ns perpend.checksums
-  (:import java.util.zip.Adler32))
+(ns perpend.checksums)
 
 
 ;; Adler-32
@@ -22,8 +21,8 @@
 
 ;; Using java.util.zip's Adler32 implementation:
 (defn ref-adler-32 [s]
-  (let [adler32 (Adler32.)
-        bytes-array (byte-array (map int s))]
+  (let [adler32 (new java.util.zip.Adler32)
+        bytes-array (.getBytes s)]
     (do
       (.update adler32 bytes-array 0 (count bytes-array))
       (.getValue adler32))))
