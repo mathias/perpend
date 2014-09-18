@@ -29,6 +29,4 @@
 
 (defn fletcher-32 [s]
   (let [[a b] (reduce fletcher-32-reducer [0 0] s)]
-    (println a)
-    (println b)
     (bit-or (bit-shift-left b 16) a)))
