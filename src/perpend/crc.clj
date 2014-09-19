@@ -13,18 +13,25 @@
       (.update crc bytes-array 0 (count bytes-array))
       (.getValue crc))))
 
-(defn crc32-table-inner [i]
-  (loop [j 8
-         rem i]
-    (if (zero? j)
-      rem
-      (if (bit-and rem 1)
-        (recur (dec j) (bit-xor 0xEDB88320 (bit-shift-right 1 rem)))
-        (recur (dec j) (bit-shift-right 1 rem))))))
+;; reverse polynomial
+(def crc32-polynomial 0xEDB88320)
+(def max-int 0xFFFFFFFF)
 
-(def crc32-lookup-table
-  (map crc32-table-inner (range 256)))
+(defn crc32-loop-8-bits [crc]
+  (loop [j 8
+         tmp crc]
+    (if (zero? j)
+      tmp
+      (if (= (bit-and tmp 1) 1)
+        (recur (dec j) (bit-xor (unsigned-bit-shift-right tmp 1) crc32-polynomial))
+        (recur (dec j) (unsigned-bit-shift-right tmp 1))))))
+
+(defn crc32-inner [crc ch]
+  (let [tmp (crc32-loop-8-bits (bit-and (bit-xor crc ch) 0xff))]
+    (bit-xor (unsigned-bit-shift-right crc 8) tmp)))
 
 (defn crc32 [s]
-  (let [polynomial 0x04C11DB7])
-  s)
+  (let [bytes (.getBytes s)
+        crc (reduce crc32-inner 0xFFFFFFFF bytes)]
+    ;; flip bits
+    (bit-xor crc 0xffffffff)))
