@@ -13,7 +13,7 @@ A place to study data structures and algorithms that I'm interested in. Not inte
 ### Checksums:
 * [x] [Adler-32](http://en.wikipedia.org/wiki/Adler-32)
 * [x] [Fletcher's checksum](http://en.wikipedia.org/wiki/Fletcher%27s_checksum)
-* [ ] [Cyclic Redundancy Check (CRCs)](http://en.wikipedia.org/wiki/Cyclic_redundancy_check) - CRC32C Algorithm
+* [x] [Cyclic Redundancy Check (CRCs)](http://en.wikipedia.org/wiki/Cyclic_redundancy_check) - CRC32C Algorithm
 
 ### Cryptographic hashing:
 * [ ] SHA-1
