@@ -23,4 +23,3 @@
 (deftest fletcher-32-fn-tests
   (fact (fletcher-32 "abcde") => 96666095)
   (fact (fletcher-32 "a") => 6357089))
-

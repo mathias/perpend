@@ -9,9 +9,8 @@
 (defn ref-crc32 [s]
   (let [crc (new java.util.zip.CRC32)
 	bytes-array (.getBytes s)]
-    (do
-      (.update crc bytes-array 0 (count bytes-array))
-      (.getValue crc))))
+    (.update crc bytes-array 0 (count bytes-array))
+    (.getValue crc)))
 
 ;; reverse polynomial
 (def crc32-polynomial 0xEDB88320)
@@ -23,8 +22,10 @@
     (if (zero? j)
       tmp
       (if (= (bit-and tmp 1) 1)
-        (recur (dec j) (bit-xor (unsigned-bit-shift-right tmp 1) crc32-polynomial))
-        (recur (dec j) (unsigned-bit-shift-right tmp 1))))))
+        (recur (dec j)
+               (bit-xor (unsigned-bit-shift-right tmp 1) crc32-polynomial))
+        (recur (dec j)
+               (unsigned-bit-shift-right tmp 1))))))
 
 (defn crc32-inner [crc ch]
   (let [tmp (crc32-loop-8-bits (bit-and (bit-xor crc ch) 0xff))]

@@ -23,9 +23,8 @@
 (defn ref-adler-32 [s]
   (let [adler32 (new java.util.zip.Adler32)
         bytes-array (.getBytes s)]
-    (do
-      (.update adler32 bytes-array 0 (count bytes-array))
-      (.getValue adler32))))
+    (.update adler32 bytes-array 0 (count bytes-array))
+    (.getValue adler32)))
 
 ;; Fletcher-32
 
